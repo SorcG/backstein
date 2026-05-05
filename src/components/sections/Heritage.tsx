@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -14,21 +14,29 @@ export default function Heritage() {
 
   useGSAP(
     () => {
-      gsap.from(".heritage-card", {
-        y:               40,
-        opacity:         0,
-        stagger:         0.12,
-        duration:        0.8,
-        ease:            "power2.out",
-        immediateRender: false,
-        scrollTrigger: {
-          trigger: ".section-heritage",
-          start:   "top 85%",
-        },
-      });
+      gsap.fromTo(
+        ".heritage-card",
+        { y: 40, opacity: 0 },
+        {
+          y:       0,
+          opacity: 1,
+          stagger: 0.12,
+          duration: 0.8,
+          ease:    "power2.out",
+          scrollTrigger: {
+            trigger:       ".section-heritage",
+            start:         "top 80%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
     },
     { scope: sectionRef }
   );
+
+  useEffect(() => {
+    ScrollTrigger.refresh();
+  }, []);
 
   return (
     <section
