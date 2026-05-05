@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Eczar } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import LenisProvider from "@/components/LenisProvider";
 
 const cormorant = Cormorant_Garamond({
@@ -53,6 +54,7 @@ export default function RootLayout({
         <LenisProvider>
           <Nav />
           {children}
+          <Footer />
         </LenisProvider>
       </body>
     </html>
