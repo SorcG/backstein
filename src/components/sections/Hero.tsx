@@ -10,8 +10,7 @@ const LINE_1 = ["Aus", "Stein", "gebrannt."];
 const LINE_2 = ["Mit", "Feuer", "geröstet."];
 
 export default function Hero() {
-  const sectionRef    = useRef<HTMLElement>(null);
-  const videoFrameRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
@@ -49,15 +48,6 @@ export default function Hero() {
           scrub:   1.0,
         },
       });
-
-      // ── Modul 4 — Sticky pin on hero video ────────────────
-      ScrollTrigger.create({
-        trigger:     sectionRef.current,
-        start:       "top top",
-        end:         "+=80%",
-        pin:         videoFrameRef.current,
-        pinSpacing:  false,
-      });
     },
     { scope: sectionRef }
   );
@@ -65,11 +55,11 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="section-hero relative min-h-screen w-full overflow-hidden pt-[120px]"
+      className="section-hero relative min-h-[100vh] w-full overflow-hidden"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >
-      {/* ─── 12-col grid with headline (1a) + subline (1b) ─────────────── */}
-      <div className="relative z-10 mx-auto grid h-[calc(100vh-120px)] w-full max-w-[1280px] grid-cols-12 gap-8 px-6">
+      {/* ─── Sticky headline block ───────────────────────────────────────── */}
+      <div className="sticky top-[120px] z-10 mx-auto grid max-w-[1280px] grid-cols-12 gap-8 px-6 pt-[120px]">
         {/* 1a. Headline cluster */}
         <div className="col-span-7 flex flex-col">
           <span className="pill-label mb-6 self-start">RÖSTMANUFAKTUR · 1924</span>
@@ -144,10 +134,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ─── 1c. Hero video — absolute centered, sticky-pinned ──────────── */}
+      {/* ─── Absolute video — anchored at vertical center of viewport ─────── */}
       <div
-        ref={videoFrameRef}
-        className="hero-video-frame img-frame absolute left-1/2 top-1/2 z-[5] h-[58vh] aspect-[4/5] -translate-x-1/2 -translate-y-1/2"
+        className="hero-video-frame img-frame absolute left-1/2 top-[50vh] z-[5] aspect-[4/5] h-[58vh] -translate-x-1/2 -translate-y-1/2"
         style={{ boxShadow: "var(--shadow-card-lift)" }}
       >
         <video
@@ -162,8 +151,8 @@ export default function Hero() {
         </video>
       </div>
 
-      {/* ─── 1d. Mega parallax wordmark "BACKSTEIN" ─────────────────────── */}
-      <div className="mega-wordmark mega-wordmark--hero absolute bottom-[-40px] left-0 right-0 z-0 text-center">
+      {/* ─── Mega parallax wordmark "BACKSTEIN" ─────────────────────────── */}
+      <div className="mega-wordmark mega-wordmark--hero absolute top-1/2 left-0 right-0 z-0 -translate-y-1/2 text-center">
         BACKSTEIN
       </div>
     </section>
