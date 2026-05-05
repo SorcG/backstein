@@ -1,0 +1,58 @@
+@import "tailwindcss";
+
+@theme {
+  /* ─── Farben ─────────────────────────────────────────────── */
+  --color-backstein-schwarz:    #1A1612;
+  --color-backstein-cream:      #E8DCC4;
+  --color-backstein-rot:        #8B4538;
+  --color-backstein-gold:       #9B8557;
+  --color-backstein-braun:      #2C2218;
+  --color-backstein-grau:       #5A4F42;
+  --color-backstein-hellbraun:  #C9A57F;
+
+  /* ─── Fonts ──────────────────────────────────────────────── */
+  --font-heading:  'Cormorant Garamond', serif;
+  --font-body:     'Inter', sans-serif;
+  --font-display:  'Eczar', serif;
+
+  /* ─── Named Shadows ──────────────────────────────────────── */
+  --shadow-card-lift:  0 8px 32px rgba(26,22,18,0.12), 0 2px 8px rgba(26,22,18,0.08);
+  --shadow-card-hover: 0 16px 48px rgba(26,22,18,0.18), 0 4px 16px rgba(26,22,18,0.10);
+
+  /* ─── Section Padding ────────────────────────────────────── */
+  --section-pad: clamp(80px, 10vw, 160px);
+}
+
+/* ─── Global Utilities ───────────────────────────────────────── */
+@layer utilities {
+  .mega-wordmark {
+    font-family:     var(--font-heading);
+    font-size:       clamp(120px, 18vw, 280px);
+    font-weight:     300;
+    letter-spacing:  -0.02em;
+    line-height:     0.9;
+    color:           var(--color-backstein-schwarz);
+    opacity:         0.06;
+    white-space:     nowrap;
+    pointer-events:  none;
+    user-select:     none;
+  }
+
+  .pill-label {
+    display:         inline-flex;
+    align-items:     center;
+    padding:         4px 12px;
+    border-radius:   999px;
+    border:          1px solid var(--color-backstein-rot);
+    font-family:     var(--font-body);
+    font-size:       11px;
+    letter-spacing:  0.08em;
+    text-transform:  uppercase;
+    color:           var(--color-backstein-rot);
+  }
+
+  .img-frame {
+    border-radius: 4px;
+    overflow:      hidden;
+  }
+}
