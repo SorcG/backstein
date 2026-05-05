@@ -55,4 +55,17 @@
     border-radius: 4px;
     overflow:      hidden;
   }
+
+  /* Mask-reveal pattern for headline word stagger.
+     Outer .word-mask clips, inner .word-inner is the GSAP target. */
+  .word-mask {
+    display:        inline-block;
+    overflow:       hidden;
+    vertical-align: bottom;
+    padding-bottom: 0.15em;     /* room for descenders inside the clip */
+    margin-right:   0.25em;
+  }
+  .word-inner {
+    display:        inline-block;
+  }
 }
