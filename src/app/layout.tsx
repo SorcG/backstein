@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter, Eczar } from "next/font/google";
 import "./globals.css";
+import Nav from "@/components/Nav";
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
@@ -48,6 +49,7 @@ export default function RootLayout({
           fontFamily: "var(--font-body)",
         }}
       >
+        <Nav />
         {children}
       </body>
     </html>
