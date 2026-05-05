@@ -5,6 +5,7 @@ import Handwerk from "@/components/sections/Handwerk";
 import Bohnen from "@/components/sections/Bohnen";
 import Ort from "@/components/sections/Ort";
 import Philosophie from "@/components/sections/Philosophie";
+import Kontakt from "@/components/sections/Kontakt";
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <Bohnen />
       <Ort />
       <Philosophie />
+      <Kontakt />
     </main>
   );
 }
