@@ -68,4 +68,9 @@
   .word-inner {
     display:        inline-block;
   }
+
+  .heritage-card {
+    opacity:   0;
+    transform: translateY(40px);
+  }
 }
