@@ -17,7 +17,8 @@
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000)",
       "Bash(git commit *)",
       "mcp__Claude_in_Chrome__navigate",
-      "mcp__Claude_in_Chrome__computer"
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(npx tsc *)"
     ]
   }
 }
