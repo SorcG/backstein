@@ -15,7 +15,9 @@
       "Bash(git commit -m ' *)",
       "Bash(git push *)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000)",
-      "Bash(git commit *)"
+      "Bash(git commit *)",
+      "mcp__Claude_in_Chrome__navigate",
+      "mcp__Claude_in_Chrome__computer"
     ]
   }
 }

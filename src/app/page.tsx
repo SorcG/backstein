@@ -1,11 +1,11 @@
 import Hero from "@/components/sections/Hero";
+import Manifest from "@/components/sections/Manifest";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      {/* Spacer so we have something to scroll into for the pin/parallax to demo */}
-      <div style={{ height: "120vh" }} />
+      <Manifest />
     </main>
   );
 }
