@@ -1,28 +1,75 @@
 'use client';
-import { useReveal } from "@/hooks/useReveal";
+import { useRef } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const CARD_BG = "rgba(232, 220, 196, 0.75)";
 const CARD_RADIUS = "12px";
 
 export default function Heritage() {
-  const revealRef = useReveal();
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useGSAP(() => {
+    // Headline — fade in from left
+    gsap.from(".heritage-headline", {
+      opacity: 0,
+      x: -30,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 80%",
+      },
+    });
+
+    // Stat cards — staggered fade + scale
+    gsap.from(".heritage-stat", {
+      opacity: 0,
+      y: 40,
+      scale: 0.94,
+      duration: 0.9,
+      stagger: 0.15,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top 70%",
+      },
+    });
+
+    // Image — parallax (image taller than container, overflow hidden clips it)
+    gsap.to(".heritage-img", {
+      y: -40,
+      ease: "none",
+      scrollTrigger: {
+        trigger: sectionRef.current,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: 1.5,
+      },
+    });
+  }, { scope: sectionRef });
 
   return (
     <section
+      ref={sectionRef}
       id="section-heritage"
       className="section-heritage relative w-full px-6 py-[var(--section-pad)]"
     >
       <div
         className="mx-auto max-w-[1280px] p-10"
         style={{
-          background:    "color-mix(in srgb, var(--color-backstein-rot) 15%, var(--color-backstein-cream) 85%)",
-          borderRadius:  "24px",
+          background:   "color-mix(in srgb, var(--color-backstein-rot) 15%, var(--color-backstein-cream) 85%)",
+          borderRadius: "24px",
         }}
       >
         {/* Section header */}
         <div className="mb-12">
           <span className="pill-label mb-4 inline-block">Heritage</span>
           <h2
+            className="heritage-headline"
             style={{
               fontFamily:    "var(--font-heading)",
               fontSize:      "clamp(40px, 5vw, 64px)",
@@ -35,15 +82,15 @@ export default function Heritage() {
           </h2>
         </div>
 
-        {/* Bento grid — left col (A + C+D), right col (B tall) */}
-        <div ref={revealRef} className="reveal grid grid-cols-1 gap-6 md:grid-cols-2">
+        {/* Bento grid */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
 
-          {/* Left column */}
+          {/* Left column — stat cards */}
           <div className="flex flex-col gap-6">
 
             {/* Card A — 1924 */}
             <div
-              className="heritage-card flex flex-col justify-between p-8"
+              className="heritage-stat flex flex-col justify-between p-8"
               style={{ backgroundColor: CARD_BG, borderRadius: CARD_RADIUS, minHeight: "220px" }}
             >
               <p
@@ -66,9 +113,8 @@ export default function Heritage() {
             {/* Cards C + D — side by side */}
             <div className="grid grid-cols-2 gap-6">
 
-              {/* Card C — 100 Jahre */}
               <div
-                className="heritage-card flex flex-col justify-between p-8"
+                className="heritage-stat flex flex-col justify-between p-8"
                 style={{ backgroundColor: CARD_BG, borderRadius: CARD_RADIUS, minHeight: "200px" }}
               >
                 <p
@@ -93,9 +139,8 @@ export default function Heritage() {
                 </div>
               </div>
 
-              {/* Card D — 4 Generationen */}
               <div
-                className="heritage-card flex flex-col justify-between p-8"
+                className="heritage-stat flex flex-col justify-between p-8"
                 style={{ backgroundColor: CARD_BG, borderRadius: CARD_RADIUS, minHeight: "200px" }}
               >
                 <p
@@ -125,13 +170,15 @@ export default function Heritage() {
 
           {/* Card B — Image (right column, full height) */}
           <div
-            className="heritage-card relative overflow-hidden order-first md:order-last"
+            className="relative overflow-hidden order-first md:order-last"
             style={{ borderRadius: CARD_RADIUS, minHeight: "460px" }}
           >
+            {/* Extra height (calc + top offset) gives parallax buffer on both ends */}
             <img
               src="/images/probat-maschine.png"
               alt="Probat-Trommelröster"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="heritage-img absolute left-0 w-full object-cover"
+              style={{ top: "-20px", height: "calc(100% + 40px)" }}
             />
             <span
               className="pill-label absolute bottom-6 left-6"
