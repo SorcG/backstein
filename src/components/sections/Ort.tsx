@@ -98,7 +98,17 @@ export default function Ort() {
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                   color:         "var(--color-backstein-grau)",
-                  marginBottom:  "8px",
+                  marginBottom:  "4px",
+                }}
+              >
+                Verkauf &amp; Abholung
+              </p>
+              <p
+                style={{
+                  fontFamily:   "var(--font-body)",
+                  fontSize:     "14px",
+                  color:        "var(--color-backstein-schwarz)",
+                  marginBottom: "8px",
                 }}
               >
                 Donnerstag und Freitag
@@ -185,7 +195,17 @@ export default function Ort() {
                   textTransform: "uppercase",
                   letterSpacing: "0.08em",
                   color:         "var(--color-backstein-grau)",
-                  marginBottom:  "8px",
+                  marginBottom:  "4px",
+                }}
+              >
+                Rösterei Besichtigung
+              </p>
+              <p
+                style={{
+                  fontFamily:   "var(--font-body)",
+                  fontSize:     "14px",
+                  color:        "var(--color-backstein-schwarz)",
+                  marginBottom: "8px",
                 }}
               >
                 Jeden ersten Freitag im Monat
