@@ -4,10 +4,10 @@ import Link from "next/link";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 const links = [
+  { label: "Manufaktur", id: "section-ort"      },
+  { label: "Bohnen",     id: "section-bohnen"   },
   { label: "Über uns",   id: "section-heritage" },
-  { label: "Manufaktur", id: "section-handwerk"  },
-  { label: "Bohnen",     id: "section-bohnen"    },
-  { label: "Kontakt",    id: "section-kontakt"   },
+  { label: "Kontakt",    id: "section-kontakt"  },
 ];
 
 function scrollToSection(id: string) {

@@ -12,11 +12,11 @@ export default function Home() {
     <main>
       <Hero />
       <Manifest />
-      <Heritage />
-      <Handwerk />
-      <Bohnen />
       <Ort />
+      <Bohnen />
+      <Handwerk />
       <Philosophie />
+      <Heritage />
       <Kontakt />
     </main>
   );

@@ -36,6 +36,7 @@ export default function Ort() {
   return (
     <section
       ref={sectionRef}
+      id="section-ort"
       className="section-ort relative w-full py-[var(--section-pad)]"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >
