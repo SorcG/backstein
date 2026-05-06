@@ -10,7 +10,7 @@ const FAQ = [
   },
   {
     q: "Wann kann ich vorbeikommen?",
-    a: "Donnerstag und Freitag von 7 bis 9 Uhr morgens. Klönzeit jeden ersten Freitag im Monat, 16:30 bis 18:30 Uhr.",
+    a: "Verkauf & Abholung: Donnerstag und Freitag von 7:00 bis 9:00 Uhr. Rösterei Besichtigung: Jeden ersten Freitag im Monat, 16:30 bis 18:30 Uhr.",
   },
   {
     q: "Wie lange dauert der Versand?",
