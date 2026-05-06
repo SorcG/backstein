@@ -82,8 +82,8 @@ export default function Ort() {
                 maxWidth:   "42ch",
               }}
             >
-              Auf dem Manufakturgelände 4. Eine alte Kornbrennerei aus dem Jahr
-              1908. Wir haben sie 2018 zurückgeholt.
+              Auf dem Manufakturgelände 4. Ein Backsteingebäude aus dem Jahr
+              1908. Hier rösten wir seit 1924.
             </p>
 
             {/* Öffnungszeiten */}
