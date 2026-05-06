@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
@@ -9,6 +9,15 @@ gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
+  const videoRef   = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    const onCanPlay = () => { video.style.opacity = "1"; };
+    video.addEventListener("canplay", onCanPlay);
+    return () => video.removeEventListener("canplay", onCanPlay);
+  }, []);
 
   useGSAP(
     () => {
@@ -117,12 +126,14 @@ export default function Hero() {
         style={{ boxShadow: "var(--shadow-card-lift)" }}
       >
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
           playsInline
-          poster="/images/probat-maschine.png"
+          preload="auto"
           className="h-full w-full object-cover"
+          style={{ opacity: 0, transition: "opacity 0.5s ease" }}
         >
           <source src="/video/hero-video.mp4" type="video/mp4" />
         </video>
