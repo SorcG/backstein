@@ -1,11 +1,7 @@
 'use client';
-import { useRef, useState } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useState } from "react";
+import { useReveal } from "@/hooks/useReveal";
 import { ChevronDown } from "lucide-react";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
 
 const FAQ = [
   {
@@ -27,38 +23,16 @@ const FAQ = [
 ];
 
 export default function Kontakt() {
-  const sectionRef                          = useRef<HTMLElement>(null);
-  const [openIndex, setOpenIndex]           = useState<number | null>(null);
-
-  useGSAP(
-    () => {
-      gsap.fromTo(
-        ".kontakt-content",
-        { y: 30, opacity: 0 },
-        {
-          y:        0,
-          opacity:  1,
-          duration: 0.9,
-          ease:     "power2.out",
-          scrollTrigger: {
-            trigger:       ".section-kontakt",
-            start:         "top 75%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    },
-    { scope: sectionRef }
-  );
+  const revealRef                          = useReveal();
+  const [openIndex, setOpenIndex]          = useState<number | null>(null);
 
   return (
     <section
-      ref={sectionRef}
       id="section-kontakt"
       className="section-kontakt relative w-full py-[var(--section-pad)]"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >
-      <div className="mx-auto grid w-full max-w-[1280px] grid-cols-2 gap-16 px-6 items-start kontakt-content">
+      <div ref={revealRef} className="reveal kontakt-content mx-auto grid w-full max-w-[1280px] grid-cols-2 gap-16 px-6 items-start">
 
         {/* ─── Linke Seite ────────────────────────────────────────── */}
         <div>

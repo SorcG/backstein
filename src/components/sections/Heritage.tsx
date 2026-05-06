@@ -1,46 +1,14 @@
 'use client';
-import { useRef, useEffect } from "react";
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(useGSAP, ScrollTrigger);
+import { useReveal } from "@/hooks/useReveal";
 
 const CARD_BG = "rgba(232, 220, 196, 0.75)";
 const CARD_RADIUS = "12px";
 
 export default function Heritage() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useGSAP(
-    () => {
-      gsap.fromTo(
-        ".heritage-card",
-        { y: 40, opacity: 0 },
-        {
-          y:       0,
-          opacity: 1,
-          stagger: 0.12,
-          duration: 0.8,
-          ease:    "power2.out",
-          scrollTrigger: {
-            trigger:       ".section-heritage",
-            start:         "top 80%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
-    },
-    { scope: sectionRef }
-  );
-
-  useEffect(() => {
-    ScrollTrigger.refresh();
-  }, []);
+  const revealRef = useReveal();
 
   return (
     <section
-      ref={sectionRef}
       id="section-heritage"
       className="section-heritage relative w-full px-6 py-[var(--section-pad)]"
     >
@@ -68,7 +36,7 @@ export default function Heritage() {
         </div>
 
         {/* Bento grid — left col (A + C+D), right col (B tall) */}
-        <div className="grid grid-cols-2 gap-6">
+        <div ref={revealRef} className="reveal grid grid-cols-2 gap-6">
 
           {/* Left column */}
           <div className="flex flex-col gap-6">

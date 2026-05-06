@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useReveal } from "@/hooks/useReveal";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
@@ -26,6 +27,7 @@ const WERTE = [
 
 export default function Philosophie() {
   const sectionRef = useRef<HTMLElement>(null);
+  const revealRef  = useReveal();
 
   useGSAP(
     () => {
@@ -50,24 +52,6 @@ export default function Philosophie() {
           );
         }
       }
-
-      // ── Modul 6 — Stagger Werte-Rows ──────────────────────
-      gsap.fromTo(
-        ".werte-row",
-        { y: 30, opacity: 0 },
-        {
-          y:        0,
-          opacity:  1,
-          stagger:  0.15,
-          duration: 0.8,
-          ease:     "power2.out",
-          scrollTrigger: {
-            trigger:       ".section-philosophie",
-            start:         "top 75%",
-            toggleActions: "play none none none",
-          },
-        }
-      );
     },
     { scope: sectionRef }
   );
@@ -121,7 +105,7 @@ export default function Philosophie() {
           </p>
 
           {/* Werte-Tabelle */}
-          <div className="werte-table mt-8">
+          <div ref={revealRef} className="reveal werte-table mt-8">
             {WERTE.map((wert, i) => (
               <div
                 key={i}

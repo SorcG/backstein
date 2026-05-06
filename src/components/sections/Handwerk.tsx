@@ -1,6 +1,7 @@
 'use client';
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { useReveal } from "@/hooks/useReveal";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -39,7 +40,8 @@ const STEPS: Step[] = [
 ];
 
 export default function Handwerk() {
-  const sectionRef = useRef<HTMLElement>(null);
+  const sectionRef  = useRef<HTMLElement>(null);
+  const revealRef   = useReveal();
 
   useGSAP(
     () => {
@@ -72,7 +74,7 @@ export default function Handwerk() {
       <div className="mx-auto grid w-full max-w-[1280px] grid-cols-12 gap-12 px-6">
 
         {/* ─── 4a. Linke Spalte — Sticky Headline ───────────────────── */}
-        <div className="handwerk-left col-span-5 sticky top-[120px] self-start">
+        <div ref={revealRef} className="reveal handwerk-left col-span-5 sticky top-[120px] self-start">
           <span className="pill-label mb-6 inline-block">Das Handwerk</span>
 
           <h2
