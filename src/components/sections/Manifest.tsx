@@ -20,15 +20,15 @@ export default function Manifest() {
       scrollTrigger: {
         trigger: sectionRef.current,
         pin:     true,
-        scrub:   0.5,
+        scrub:   1.5,
         start:   "top top",
-        end:     "+=120%",
+        end:     "+=150%",
       },
     });
 
-    tl.to(smallWords, { opacity: 1, duration: 0.5, stagger: 0.6 });
-    tl.to(divider,    { opacity: 1, scaleX: 1, duration: 0.4, transformOrigin: "center" }, "+=0.2");
-    tl.to(bigWords,   { opacity: 1, duration: 0.5, stagger: 0.6 }, "+=0.2");
+    tl.to(smallWords, { opacity: 1, duration: 1, stagger: 0.08, ease: "power1.inOut" });
+    tl.to(divider,    { opacity: 1, scaleX: 1, duration: 0.6, ease: "power1.inOut", transformOrigin: "center" }, "+=0.1");
+    tl.to(bigWords,   { opacity: 1, duration: 1, stagger: 0.08, ease: "power1.inOut" }, "+=0.1");
   }, { scope: sectionRef });
 
   const smallText = "Geröstet seit hundert Jahren.";
