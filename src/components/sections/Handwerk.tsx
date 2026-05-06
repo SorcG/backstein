@@ -54,8 +54,8 @@ export default function Handwerk() {
           ease:    "none",
           scrollTrigger: {
             trigger: cards[i + 1],
-            start:   "top bottom",
-            end:     "top top",
+            start:   "top 70%",
+            end:     "top 10%",
             scrub:   1,
           },
         });
@@ -127,7 +127,7 @@ export default function Handwerk() {
               className="craft-card sticky top-[160px] mx-auto flex aspect-[4/3] w-full max-w-full flex-col justify-end overflow-hidden p-8 md:aspect-[4/5] md:max-w-[480px]"
               style={{
                 borderRadius: "16px",
-                marginBottom: "24px",
+                marginBottom: "clamp(100px, 25vh, 240px)",
               }}
             >
               {/* Video background — z-0 */}
