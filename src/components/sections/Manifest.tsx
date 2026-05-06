@@ -32,7 +32,7 @@ export default function Manifest() {
   }, { scope: sectionRef });
 
   const smallText = "Geröstet seit hundert Jahren.";
-  const bigText   = "Manufaktur seit hundert Jahren.";
+  const bigText   = "Rösten ist unser Handwerk.";
 
   return (
     <section
