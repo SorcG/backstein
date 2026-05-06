@@ -88,19 +88,7 @@ export default function Handwerk() {
               color:         "var(--color-backstein-schwarz)",
             }}
           >
-            Aus Stein gebrannt.
-            <br />
-            Mit{" "}
-            <span
-              style={{
-                fontStyle:  "italic",
-                fontWeight: 500,
-                color:      "var(--color-backstein-rot)",
-              }}
-            >
-              Feuer
-            </span>{" "}
-            geröstet.
+            So entsteht unser Kaffee.
           </h2>
 
           <p
@@ -113,9 +101,9 @@ export default function Handwerk() {
               maxWidth:   "38ch",
             }}
           >
-            Drei Schritte. Drei Stunden. Drei Hundertstel Sekunde Aufmerksamkeit
-            pro Bohne. Unsere Trommel wurde 1924 in Emmerich gebaut. Wir füllen
-            sie noch immer von Hand.
+            Jede Bohne durchläuft drei Stationen — von Hand sortiert, in der
+            Trommel geröstet, auf den Punkt gekühlt. Kein Automat entscheidet.
+            Nur Erfahrung.
           </p>
         </div>
 
