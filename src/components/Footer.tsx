@@ -1,7 +1,12 @@
 'use client';
+import Link from "next/link";
 
-const NAV_LINKS   = ["Über uns", "Manufaktur", "Bohnen", "Kontakt", "Shop"];
-const LEGAL_LINKS = ["AGB", "Datenschutz", "Impressum"];
+const NAV_LINKS = ["Über uns", "Manufaktur", "Bohnen", "Kontakt", "Shop"];
+const LEGAL_LINKS = [
+  { label: "AGB",         href: "/agb"         },
+  { label: "Datenschutz", href: "/datenschutz"  },
+  { label: "Impressum",   href: "/impressum"    },
+];
 
 const LABEL_STYLE: React.CSSProperties = {
   fontFamily:    "var(--font-body)",
@@ -145,18 +150,18 @@ export default function Footer() {
           </span>
 
           <div className="flex gap-6">
-            {LEGAL_LINKS.map((link) => (
-              <a
-                key={link}
-                href="#"
+            {LEGAL_LINKS.map(({ label, href }) => (
+              <Link
+                key={label}
+                href={href}
                 style={{
                   fontFamily: "var(--font-body)",
                   fontSize:   "13px",
                   color:      "var(--color-backstein-grau)",
                 }}
               >
-                {link}
-              </a>
+                {label}
+              </Link>
             ))}
           </div>
 
