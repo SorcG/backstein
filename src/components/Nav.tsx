@@ -14,6 +14,10 @@ function scrollToSection(id: string) {
   document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 }
 
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
 export default function Nav() {
   const direction = useScrollDirection();
   const hidden = direction === "down";
@@ -33,7 +37,7 @@ export default function Nav() {
           opacity: hidden ? 0 : 1,
         }}
       >
-        <Link href="/" className="flex flex-col leading-none shrink-0">
+        <Link href="/" onClick={scrollToTop} className="flex flex-col leading-none shrink-0">
           <span
             style={{
               fontFamily:    "var(--font-heading)",
@@ -116,7 +120,7 @@ export default function Nav() {
           borderBottom:    "0.5px solid var(--color-backstein-gold)",
         }}
       >
-        <Link href="/" className="flex flex-col leading-none">
+        <Link href="/" onClick={scrollToTop} className="flex flex-col leading-none">
           <span
             style={{
               fontFamily:    "var(--font-heading)",
