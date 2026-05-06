@@ -65,6 +65,7 @@ export default function Handwerk() {
   return (
     <section
       ref={sectionRef}
+      id="section-handwerk"
       className="section-handwerk relative w-full py-[var(--section-pad)]"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >

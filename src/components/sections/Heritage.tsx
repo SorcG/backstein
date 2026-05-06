@@ -41,6 +41,7 @@ export default function Heritage() {
   return (
     <section
       ref={sectionRef}
+      id="section-heritage"
       className="section-heritage relative w-full px-6 py-[var(--section-pad)]"
     >
       <div

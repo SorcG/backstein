@@ -205,6 +205,22 @@ export default function Ort() {
 
         </div>
 
+        {/* ─── Vollbild Innenraum-Tour Video ──────────────────────────── */}
+        <div
+          className="mt-24 w-full overflow-hidden"
+          style={{ borderRadius: "8px", aspectRatio: "16/9" }}
+        >
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover"
+          >
+            <source src="/video/innenraum-tour.mp4" type="video/mp4" />
+          </video>
+        </div>
+
       </div>
     </section>
   );

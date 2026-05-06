@@ -76,6 +76,7 @@ export default function Bohnen() {
   return (
     <section
       ref={sectionRef}
+      id="section-bohnen"
       className="section-bohnen relative w-full py-[var(--section-pad)]"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >

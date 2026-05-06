@@ -54,6 +54,7 @@ export default function Kontakt() {
   return (
     <section
       ref={sectionRef}
+      id="section-kontakt"
       className="section-kontakt relative w-full py-[var(--section-pad)]"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >

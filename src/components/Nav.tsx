@@ -3,11 +3,15 @@ import Link from "next/link";
 import { useScrollDirection } from "@/hooks/useScrollDirection";
 
 const links = [
-  { label: "Über uns",   href: "#ueber-uns"  },
-  { label: "Manufaktur", href: "#handwerk"   },
-  { label: "Bohnen",     href: "#bohnen"     },
-  { label: "Kontakt",    href: "#kontakt"    },
+  { label: "Über uns",   id: "section-heritage" },
+  { label: "Manufaktur", id: "section-handwerk"  },
+  { label: "Bohnen",     id: "section-bohnen"    },
+  { label: "Kontakt",    id: "section-kontakt"   },
 ];
+
+function scrollToSection(id: string) {
+  document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+}
 
 export default function Nav() {
   const direction = useScrollDirection();
@@ -55,29 +59,33 @@ export default function Nav() {
 
       {/* ── Nav links ─────────────────────────── */}
       <nav className="flex items-center gap-7">
-        {links.map(({ label, href }) => (
-          <Link
+        {links.map(({ label, id }) => (
+          <button
             key={label}
-            href={href}
-            className="transition-colors duration-200"
+            onClick={() => scrollToSection(id)}
             style={{
               fontFamily:    "var(--font-body)",
               fontSize:      "13px",
               fontWeight:    400,
               letterSpacing: "0.02em",
               color:         "rgba(26, 22, 18, 0.65)",
+              background:    "none",
+              border:        "none",
+              cursor:        "pointer",
+              padding:       0,
+              transition:    "color 200ms",
             }}
             onMouseEnter={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.color =
+              ((e.currentTarget as HTMLButtonElement).style.color =
                 "var(--color-backstein-rot)")
             }
             onMouseLeave={(e) =>
-              ((e.currentTarget as HTMLAnchorElement).style.color =
+              ((e.currentTarget as HTMLButtonElement).style.color =
                 "rgba(26, 22, 18, 0.65)")
             }
           >
             {label}
-          </Link>
+          </button>
         ))}
       </nav>
 
