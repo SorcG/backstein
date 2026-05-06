@@ -57,10 +57,10 @@ export default function Ort() {
         </h2>
 
         {/* ─── Paar 1 — Text links, Bild rechts ─────────────────────── */}
-        <div className="mt-16 grid grid-cols-2 items-center gap-16">
+        <div className="mt-16 flex flex-col gap-8 md:grid md:grid-cols-2 md:items-center md:gap-16">
 
           {/* Text */}
-          <div>
+          <div className="order-2 md:order-1">
             <h3
               style={{
                 fontFamily: "var(--font-heading)",
@@ -118,7 +118,7 @@ export default function Ort() {
 
           {/* Bild */}
           <div
-            className="ort-img-wrap overflow-hidden"
+            className="ort-img-wrap overflow-hidden order-1 md:order-2"
             style={{ borderRadius: "8px", aspectRatio: "4/3" }}
           >
             <img
@@ -132,7 +132,7 @@ export default function Ort() {
         </div>
 
         {/* ─── Paar 2 — Bild links, Text rechts ─────────────────────── */}
-        <div className="mt-24 grid grid-cols-2 items-center gap-16">
+        <div className="mt-12 flex flex-col gap-8 md:mt-24 md:grid md:grid-cols-2 md:items-center md:gap-16">
 
           {/* Bild */}
           <div
@@ -207,8 +207,8 @@ export default function Ort() {
 
         {/* ─── Vollbild Innenraum-Tour Video ──────────────────────────── */}
         <div
-          className="mt-24 w-full overflow-hidden"
-          style={{ borderRadius: "8px", aspectRatio: "16/9" }}
+          className="mt-12 md:mt-24 w-full overflow-hidden aspect-[9/16] md:aspect-[16/9]"
+          style={{ borderRadius: "8px" }}
         >
           <video
             autoPlay

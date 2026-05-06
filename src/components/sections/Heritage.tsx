@@ -36,7 +36,7 @@ export default function Heritage() {
         </div>
 
         {/* Bento grid — left col (A + C+D), right col (B tall) */}
-        <div ref={revealRef} className="reveal grid grid-cols-2 gap-6">
+        <div ref={revealRef} className="reveal grid grid-cols-1 gap-6 md:grid-cols-2">
 
           {/* Left column */}
           <div className="flex flex-col gap-6">
@@ -125,7 +125,7 @@ export default function Heritage() {
 
           {/* Card B — Image (right column, full height) */}
           <div
-            className="heritage-card relative overflow-hidden"
+            className="heritage-card relative overflow-hidden order-first md:order-last"
             style={{ borderRadius: CARD_RADIUS, minHeight: "460px" }}
           >
             <img

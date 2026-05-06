@@ -71,10 +71,10 @@ export default function Handwerk() {
       className="section-handwerk relative w-full py-[var(--section-pad)]"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >
-      <div className="mx-auto grid w-full max-w-[1280px] grid-cols-12 gap-12 px-6">
+      <div className="mx-auto w-full max-w-[1280px] px-6 flex flex-col gap-8 md:grid md:grid-cols-12 md:gap-12">
 
         {/* ─── 4a. Linke Spalte — Sticky Headline ───────────────────── */}
-        <div ref={revealRef} className="reveal handwerk-left col-span-5 sticky top-[120px] self-start">
+        <div ref={revealRef} className="reveal handwerk-left md:col-span-5 md:sticky md:top-[120px] md:self-start">
           <span className="pill-label mb-6 inline-block">Das Handwerk</span>
 
           <h2
@@ -120,11 +120,11 @@ export default function Handwerk() {
         </div>
 
         {/* ─── 4b. Rechte Spalte — Stacking Craft Cards ─────────────── */}
-        <div className="handwerk-right-stack col-span-7 relative">
+        <div className="handwerk-right-stack relative md:col-span-7">
           {STEPS.map((step) => (
             <div
               key={step.id}
-              className="craft-card sticky top-[160px] mx-auto flex aspect-[4/5] w-full max-w-[480px] flex-col justify-end overflow-hidden p-8"
+              className="craft-card sticky top-[160px] mx-auto flex aspect-[4/3] w-full max-w-full flex-col justify-end overflow-hidden p-8 md:aspect-[4/5] md:max-w-[480px]"
               style={{
                 borderRadius: "16px",
                 marginBottom: "24px",

@@ -32,7 +32,7 @@ export default function Kontakt() {
       className="section-kontakt relative w-full py-[var(--section-pad)]"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >
-      <div ref={revealRef} className="reveal kontakt-content mx-auto grid w-full max-w-[1280px] grid-cols-2 gap-16 px-6 items-start">
+      <div ref={revealRef} className="reveal kontakt-content mx-auto w-full max-w-[1280px] px-6 flex flex-col gap-10 md:grid md:grid-cols-2 md:gap-16 md:items-start">
 
         {/* ─── Linke Seite ────────────────────────────────────────── */}
         <div>

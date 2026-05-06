@@ -23,7 +23,7 @@ export default function Footer() {
       <div className="mx-auto max-w-[1280px] px-6">
 
         {/* ─── Drei Spalten ───────────────────────────────────────── */}
-        <div className="grid grid-cols-3 gap-12 py-16">
+        <div className="flex flex-col gap-10 py-16 md:grid md:grid-cols-3 md:gap-12">
 
           {/* Spalte 1 — Navigation */}
           <div>
@@ -131,7 +131,7 @@ export default function Footer() {
 
         {/* ─── Bottom strip ───────────────────────────────────────── */}
         <div
-          className="flex items-center justify-between py-6"
+          className="flex flex-col items-center gap-3 py-6 text-center md:flex-row md:justify-between md:text-left"
           style={{ borderTop: "0.5px solid var(--color-backstein-gold)" }}
         >
           <span

@@ -55,13 +55,13 @@ export default function Hero() {
   return (
     <section
       ref={sectionRef}
-      className="section-hero relative min-h-[100vh] w-full overflow-hidden"
+      className="section-hero relative min-h-[100vh] w-full overflow-hidden flex flex-col md:block"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >
       {/* ─── Sticky headline block ───────────────────────────────────────── */}
-      <div className="sticky top-[120px] z-10 mx-auto grid max-w-[1280px] grid-cols-12 gap-8 px-6 pt-[120px]">
+      <div className="z-10 px-6 pt-32 md:sticky md:top-[120px] md:mx-auto md:grid md:max-w-[1280px] md:grid-cols-12 md:gap-8 md:pt-[120px]">
         {/* 1a. Headline cluster */}
-        <div className="col-span-7 flex flex-col">
+        <div className="flex flex-col md:col-span-7">
           <span className="pill-label mb-6 self-start">RÖSTMANUFAKTUR · 1924</span>
 
           <h1
@@ -117,7 +117,7 @@ export default function Hero() {
         </div>
 
         {/* 1b. Subline (top-right) */}
-        <div className="col-span-5 flex justify-end pt-2">
+        <div className="hidden md:flex md:col-span-5 md:justify-end md:pt-2">
           <p
             className="text-right"
             style={{
@@ -136,7 +136,7 @@ export default function Hero() {
 
       {/* ─── Absolute video — anchored at vertical center of viewport ─────── */}
       <div
-        className="hero-video-frame img-frame absolute left-1/2 top-[50vh] z-[5] aspect-[4/5] h-[58vh] -translate-x-1/2 -translate-y-1/2"
+        className="hero-video-frame img-frame aspect-[4/5] mx-auto mt-8 w-full max-w-[320px] md:absolute md:left-1/2 md:top-[50vh] md:z-[5] md:mx-0 md:mt-0 md:h-[58vh] md:max-w-none md:w-auto md:-translate-x-1/2 md:-translate-y-1/2"
         style={{ boxShadow: "var(--shadow-card-lift)" }}
       >
         <video

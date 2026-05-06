@@ -27,7 +27,7 @@
 @layer utilities {
   .mega-wordmark {
     font-family:     var(--font-heading);
-    font-size:       clamp(120px, 18vw, 280px);
+    font-size:       clamp(80px, 22vw, 120px);
     font-weight:     300;
     letter-spacing:  -0.02em;
     line-height:     0.9;
@@ -36,6 +36,12 @@
     white-space:     nowrap;
     pointer-events:  none;
     user-select:     none;
+  }
+
+  @media (min-width: 768px) {
+    .mega-wordmark {
+      font-size: clamp(120px, 18vw, 280px);
+    }
   }
 
   .pill-label {

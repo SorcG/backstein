@@ -59,7 +59,7 @@ export default function Bohnen() {
           duration: 0.9,
           ease:     "power2.out",
           scrollTrigger: {
-            trigger:       ".section-bohnen",
+            trigger:       sectionRef.current,
             start:         "top 80%",
             toggleActions: "play none none none",
           },
@@ -114,7 +114,7 @@ export default function Bohnen() {
         </div>
 
         {/* Product grid */}
-        <div className="grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
           {BOHNEN.map((bohne) => (
             <div
               key={bohne.id}

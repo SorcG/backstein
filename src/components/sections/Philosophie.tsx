@@ -62,13 +62,13 @@ export default function Philosophie() {
       className="section-philosophie relative w-full py-[var(--section-pad)]"
       style={{ backgroundColor: "var(--color-backstein-cream)" }}
     >
-      <div className="mx-auto grid w-full max-w-[1280px] grid-cols-12 gap-16 px-6 items-start">
+      <div className="mx-auto w-full max-w-[1280px] px-6 flex flex-col gap-8 md:grid md:grid-cols-12 md:gap-16 md:items-start">
 
         {/* ─── Linke Seite — Bild (col-span-5) ────────────────────── */}
-        <div className="col-span-5">
+        <div className="md:col-span-5">
           <div
             className="ort-img-wrap overflow-hidden"
-            style={{ borderRadius: "8px", aspectRatio: "4/5" }}
+            style={{ borderRadius: "8px", aspectRatio: "4/3" }}
           >
             <img
               src="/images/fallende-bohnen.png"
@@ -80,7 +80,7 @@ export default function Philosophie() {
         </div>
 
         {/* ─── Rechte Seite — Tabelle (col-span-7) ─────────────────── */}
-        <div className="col-span-7">
+        <div className="md:col-span-7">
           <span
             className="pill-label"
             style={{
