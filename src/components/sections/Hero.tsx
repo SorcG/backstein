@@ -6,8 +6,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const LINE_1 = ["Aus", "Stein", "gebrannt."];
-const LINE_2 = ["Mit", "Feuer", "geröstet."];
+const LINE_1 = ["Kaffee", "wie", "er"];
+const LINE_2 = ["sein", "sollte."];
+const LINE_3 = ["Geröstet", "mit", "Feuer."];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -81,27 +82,22 @@ export default function Hero() {
               </span>
             ))}
             <br />
-            {LINE_2.map((word, i) => {
-              const isFeuer = word === "Feuer";
-              return (
-                <span key={`l2-${i}`} className="word-mask">
-                  <span
-                    className="word-inner"
-                    style={
-                      isFeuer
-                        ? {
-                            fontStyle:  "italic",
-                            fontWeight: 500,
-                            color:      "var(--color-backstein-rot)",
-                          }
-                        : undefined
-                    }
-                  >
-                    {word}
-                  </span>
+            {LINE_2.map((word, i) => (
+              <span key={`l2-${i}`} className="word-mask">
+                <span
+                  className="word-inner"
+                  style={{ fontStyle: "italic", fontWeight: 500, color: "var(--color-backstein-rot)" }}
+                >
+                  {word}
                 </span>
-              );
-            })}
+              </span>
+            ))}
+            <br />
+            {LINE_3.map((word, i) => (
+              <span key={`l3-${i}`} className="word-mask">
+                <span className="word-inner">{word}</span>
+              </span>
+            ))}
           </h1>
 
           <p
