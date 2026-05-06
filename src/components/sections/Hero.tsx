@@ -68,18 +68,19 @@ export default function Hero() {
       {/* ─── Sticky headline block ───────────────────────────────────────── */}
       <div className="z-10 px-6 pt-32 md:sticky md:top-[120px] md:mx-auto md:grid md:max-w-[1280px] md:grid-cols-12 md:gap-8 md:pt-[120px]">
         {/* 1a. Headline cluster */}
-        <div className="flex flex-col md:col-span-7">
+        <div className="flex flex-col md:col-span-5">
           <span className="pill-label mb-6 self-start">RÖSTMANUFAKTUR · 1924</span>
 
           <h1
             className="hero-headline"
             style={{
               fontFamily:    "var(--font-heading)",
-              fontSize:      "clamp(32px, 3.5vw, 60px)",
+              fontSize:      "clamp(32px, 3.2vw, 52px)",
               fontWeight:    300,
               lineHeight:    1.05,
               letterSpacing: "-0.015em",
               color:         "var(--color-backstein-schwarz)",
+              maxWidth:      "360px",
             }}
           >
             <div className="hero-line">Kaffee wie er</div>
@@ -103,7 +104,7 @@ export default function Hero() {
         </div>
 
         {/* 1b. Subline (top-right) */}
-        <div className="hidden md:flex md:col-span-5 md:justify-end md:pt-2">
+        <div className="hidden md:flex md:col-span-7 md:justify-end md:pt-2">
           <p
             className="text-right"
             style={{
