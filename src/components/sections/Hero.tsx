@@ -6,20 +6,17 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-const LINE_1 = ["Kaffee", "wie", "er"];
-const LINE_2 = ["sein", "sollte."];
-const LINE_3 = ["Geröstet", "mit", "Feuer."];
 
 export default function Hero() {
   const sectionRef = useRef<HTMLElement>(null);
 
   useGSAP(
     () => {
-      // ── Modul 2 — Word reveal on load ─────────────────────
-      gsap.from(".hero-headline .word-inner", {
-        yPercent: 100,
+      // ── Modul 2 — Line reveal on load ─────────────────────
+      gsap.from(".hero-headline .hero-line", {
+        yPercent: 20,
         opacity:  0,
-        stagger:  0.08,
+        stagger:  0.12,
         ease:     "power2.out",
         duration: 0.8,
         delay:    0.3,
@@ -66,38 +63,22 @@ export default function Hero() {
           <span className="pill-label mb-6 self-start">RÖSTMANUFAKTUR · 1924</span>
 
           <h1
-            className="hero-headline max-w-[14ch]"
+            className="hero-headline"
             style={{
               fontFamily:    "var(--font-heading)",
-              fontSize:      "clamp(56px, 7vw, 96px)",
+              fontSize:      "clamp(40px, 5vw, 80px)",
               fontWeight:    300,
-              lineHeight:    0.95,
+              lineHeight:    1.0,
               letterSpacing: "-0.015em",
               color:         "var(--color-backstein-schwarz)",
             }}
           >
-            {LINE_1.map((word, i) => (
-              <span key={`l1-${i}`} className="word-mask">
-                <span className="word-inner">{word}</span>
-              </span>
-            ))}
-            <br />
-            {LINE_2.map((word, i) => (
-              <span key={`l2-${i}`} className="word-mask">
-                <span
-                  className="word-inner"
-                  style={{ fontStyle: "italic", fontWeight: 500, color: "var(--color-backstein-rot)" }}
-                >
-                  {word}
-                </span>
-              </span>
-            ))}
-            <br />
-            {LINE_3.map((word, i) => (
-              <span key={`l3-${i}`} className="word-mask">
-                <span className="word-inner">{word}</span>
-              </span>
-            ))}
+            <span className="hero-line" style={{ display: "block" }}>Kaffee wie er</span>
+            <span className="hero-line" style={{ display: "block" }}>sein sollte.</span>
+            <span className="hero-line" style={{ display: "block" }}>
+              Geröstet mit{" "}
+              <span style={{ color: "#8B4538", fontStyle: "italic", fontWeight: 500 }}>Feuer.</span>
+            </span>
           </h1>
 
           <p
