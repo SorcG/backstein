@@ -18,7 +18,7 @@ export default function Manifest() {
         duration: 0.9,
         ease:     "power2.out",
         scrollTrigger: {
-          trigger: ".section-manifest",
+          trigger: sectionRef.current,
           start:   "top 75%",
         },
       });
