@@ -49,7 +49,7 @@ export default function DatenschutzPage() {
   return (
     <main
       style={{ backgroundColor: "#E8DCC4", color: "#1A1612" }}
-      className="min-h-screen"
+      className="min-h-screen pt-16 md:pt-[88px]"
     >
       <Nav />
 
