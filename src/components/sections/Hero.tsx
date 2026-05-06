@@ -66,19 +66,19 @@ export default function Hero() {
             className="hero-headline"
             style={{
               fontFamily:    "var(--font-heading)",
-              fontSize:      "clamp(40px, 5vw, 80px)",
+              fontSize:      "clamp(32px, 3.5vw, 60px)",
               fontWeight:    300,
-              lineHeight:    1.0,
+              lineHeight:    1.05,
               letterSpacing: "-0.015em",
               color:         "var(--color-backstein-schwarz)",
             }}
           >
-            <span className="hero-line" style={{ display: "block" }}>Kaffee wie er</span>
-            <span className="hero-line" style={{ display: "block" }}>sein sollte.</span>
-            <span className="hero-line" style={{ display: "block" }}>
+            <div className="hero-line">Kaffee wie er</div>
+            <div className="hero-line">sein sollte.</div>
+            <div className="hero-line">
               Geröstet mit{" "}
               <span style={{ color: "#8B4538", fontStyle: "italic", fontWeight: 500 }}>Feuer.</span>
-            </span>
+            </div>
           </h1>
 
           <p
