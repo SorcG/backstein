@@ -1,7 +1,17 @@
 'use client';
 import Link from "next/link";
 
-const NAV_LINKS = ["Über uns", "Manufaktur", "Bohnen", "Kontakt", "Shop"];
+type NavLink =
+  | { label: string; id: string; href?: never }
+  | { label: string; href: string; id?: never };
+
+const NAV_LINKS: NavLink[] = [
+  { label: "Manufaktur", id:   "section-ort"      },
+  { label: "Bohnen",     id:   "section-bohnen"   },
+  { label: "Über uns",   id:   "section-heritage" },
+  { label: "Kontakt",    id:   "section-kontakt"  },
+  { label: "Shop",       href: "/shop"             },
+];
 const LEGAL_LINKS = [
   { label: "AGB",         href: "/agb"         },
   { label: "Datenschutz", href: "/datenschutz"  },
@@ -34,29 +44,44 @@ export default function Footer() {
           <div>
             <p style={LABEL_STYLE}>Menu</p>
             <nav className="mt-4 flex flex-col gap-3">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link}
-                  href="#"
-                  style={{
-                    fontFamily:  "var(--font-body)",
-                    fontSize:    "15px",
-                    color:       "var(--color-backstein-schwarz)",
-                    transition:  "color 200ms",
-                    display:     "block",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.color =
-                      "var(--color-backstein-rot)";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLAnchorElement).style.color =
-                      "var(--color-backstein-schwarz)";
-                  }}
-                >
-                  {link}
-                </a>
-              ))}
+              {NAV_LINKS.map(({ label, id, href }) => {
+                const linkStyle: React.CSSProperties = {
+                  fontFamily: "var(--font-body)",
+                  fontSize:   "15px",
+                  color:      "var(--color-backstein-schwarz)",
+                  transition: "color 200ms",
+                  display:    "block",
+                  background: "none",
+                  border:     "none",
+                  padding:    0,
+                  cursor:     "pointer",
+                  textAlign:  "left",
+                };
+                const hoverOn  = (e: React.MouseEvent<HTMLElement>) =>
+                  ((e.currentTarget as HTMLElement).style.color = "var(--color-backstein-rot)");
+                const hoverOff = (e: React.MouseEvent<HTMLElement>) =>
+                  ((e.currentTarget as HTMLElement).style.color = "var(--color-backstein-schwarz)");
+
+                if (href) {
+                  return (
+                    <Link key={label} href={href} style={linkStyle}
+                      onMouseEnter={hoverOn} onMouseLeave={hoverOff}>
+                      {label}
+                    </Link>
+                  );
+                }
+                return (
+                  <button
+                    key={label}
+                    style={linkStyle}
+                    onMouseEnter={hoverOn}
+                    onMouseLeave={hoverOff}
+                    onClick={() => document.getElementById(id!)?.scrollIntoView({ behavior: "smooth" })}
+                  >
+                    {label}
+                  </button>
+                );
+              })}
             </nav>
           </div>
 
